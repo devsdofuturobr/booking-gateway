@@ -13,14 +13,14 @@ spring:
           ###################################################################################
           ##########################  api-auth  #####################################
           - id: auth-main
-            uri: http://localhost:9001
+            uri: ${URI_BOOKING_AUTH:http://localhost:9001}
             predicates:
               - Path=/auth
             filters:
               - RewritePath=/auth, /api/v1/auth
 
           - id: auth
-            uri: http://localhost:9001
+            uri: ${URI_BOOKING_AUTH:http://localhost:9001}
             predicates:
               - Path=/auth/**
             filters:
@@ -29,14 +29,14 @@ spring:
           ###################################################################################
           ##########################  api-booking  #####################################
           - id: booking-main
-            uri: http://localhost:9002
+            uri: ${URI_BOOKING:http://localhost:9002}
             predicates:
               - Path=/bookings
             filters:
               - RewritePath=/bookings, /api/v1/bookings
 
           - id: booking
-            uri: http://localhost:9002
+            uri: ${URI_BOOKING:http://localhost:9002}
             predicates:
               - Path=/bookings/**
             filters:
